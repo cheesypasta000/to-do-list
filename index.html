@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDoList</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div class="topbar">
+      <div class="logo">Seavphov<span class="dot">.</span></div>
+      <span id="the-date" class="today"></span>
+    </div>
+
+    <div class="counters">
+      <div class="counter-box">
+        <span id="c-total">0</span>
+        <small>Total</small>
+      </div>
+      <div class="counter-box">
+        <span id="c-left">0</span>
+        <small>Left</small>
+      </div>
+      <div class="counter-box">
+        <span id="c-done">0</span>
+        <small>Done</small>
+      </div>
+      <div class="counter-box">
+        <span id="c-noted">0</span>
+        <small>With note</small>
+      </div>
+    </div>
+
+    <button class="add-btn" id="open-new">+ Add task</button>
+
+    <div class="tabs">
+      <button class="tab active" data-f="all">All</button>
+      <button class="tab" data-f="active">Active</button>
+      <button class="tab" data-f="done">Done</button>
+      <button class="tab" data-f="noted">Has note</button>
+    </div>
+
+    <div class="task-list" id="task-list"></div>
+
+  </div>
+
+  <!-- add / edit modal -->
+  <div class="overlay" id="task-modal">
+    <div class="modal">
+      <div class="modal-top">
+        <span id="modal-title">New task</span>
+        <button class="x-btn" id="modal-close">✕</button>
+      </div>
+
+      <label>Task *</label>
+      <input type="text" id="f-title" placeholder="what do you need to do..." maxlength="120"/>
+
+      <label>Note <span class="optional">(optional)</span></label>
+      <textarea id="f-note" placeholder="add details, links, reminders..." maxlength="600"></textarea>
+      <div class="char-count"><span id="char-used">0</span>/600</div>
+
+      <div class="two-col">
+        <div>
+          <label>Priority</label>
+          <select id="f-priority">
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div>
+          <label>Due date</label>
+          <input type="date" id="f-due"/>
+        </div>
+      </div>
+
+      <div class="modal-btns">
+        <button class="btn-cancel" id="modal-cancel">Cancel</button>
+        <button class="btn-save" id="modal-save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- delete confirm -->
+  <div class="overlay" id="del-overlay">
+    <div class="modal small-modal">
+      <p>delete <strong id="del-name"></strong>?</p>
+      <p class="sub-p">this also removes the note. can't undo.</p>
+      <div class="modal-btns">
+        <button class="btn-cancel" id="del-cancel">Cancel</button>
+        <button class="btn-del" id="del-confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
