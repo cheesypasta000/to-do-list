@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 // APP DATA
 let tasks = [];
 let editingId  = null;
@@ -351,4 +350,3 @@ function addDemoTasks() {
 load();
 addDemoTasks();
 render();
->>>>>>> Stashed changes
