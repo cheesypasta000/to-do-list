@@ -55,6 +55,7 @@ body {
 .today {
   font-size: 12px;
   color: rgb(0, 255, 0);
+  color: var(--green);
 }
 
 /* COUNTERS */
